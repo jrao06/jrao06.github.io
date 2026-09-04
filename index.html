@@ -17,6 +17,7 @@
     --ink: #16221f;
     --ink-soft: #4d5c58;
     --accent: #a8722f;
+    --accent-ink: #fbf6ee;
     --grid-line: rgba(22,34,31,0.07);
     --focus: #16221f;
   }
@@ -29,6 +30,7 @@
       --ink: #e9eef1;
       --ink-soft: #9db2c2;
       --accent: #e0a24d;
+      --accent-ink: #1a1206;
       --grid-line: rgba(233,238,241,0.07);
       --focus: #e9eef1;
     }
@@ -40,6 +42,7 @@
     --ink: #e9eef1;
     --ink-soft: #9db2c2;
     --accent: #e0a24d;
+    --accent-ink: #1a1206;
     --grid-line: rgba(233,238,241,0.07);
     --focus: #e9eef1;
   }
@@ -65,27 +68,8 @@
   .sheet{
     max-width: 640px;
     margin: 0 auto;
-    padding: 20px 20px 40px;
+    padding: 44px 20px 40px;
   }
-
-  .titleblock{
-    display:flex;
-    flex-wrap: wrap;
-    gap: 10px 22px;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: var(--panel);
-    padding: 10px 14px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.06em;
-    color: var(--ink-soft);
-    text-transform: uppercase;
-  }
-  .titleblock .field{ display:flex; gap:6px; align-items:baseline; white-space:nowrap; }
-  .titleblock .field b{ color: var(--ink); font-weight:600; letter-spacing: 0.02em; }
-
-  main{ padding-top: 34px; }
 
   .name{
     font-family: 'Big Shoulders Stencil', system-ui, sans-serif;
@@ -112,56 +96,14 @@
     margin: 26px 0;
   }
 
-  .grid-2{
-    display:grid;
-    grid-template-columns: minmax(180px, 220px) 1fr;
-    gap: 28px;
-    align-items: start;
-  }
-  @media (max-width: 540px){
-    .grid-2{ grid-template-columns: 1fr; }
-  }
-
-  .component{
-    margin:0;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: var(--panel);
-    padding: 16px 14px 12px;
-  }
-  .component svg{ display:block; width:100%; height:auto; }
-  .component figcaption{
-    margin-top: 10px;
+  .section-label{
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.04em;
+    font-size: 11px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--ink-soft);
-    line-height: 1.5;
+    margin: 0 0 14px;
   }
-  .component figcaption strong{ color: var(--ink); }
-
-  .dot-fill{ fill: var(--accent); }
-  .dot-empty{ fill: none; stroke: var(--line); stroke-width: 1.4; }
-  .dim-line{ stroke: var(--ink-soft); stroke-width: 1; opacity: 0.7; }
-  .dim-label{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 6.5px;
-    fill: var(--ink-soft);
-    letter-spacing: 0.02em;
-  }
-  .trace{
-    fill: none;
-    stroke: var(--accent);
-    stroke-width: 1.4;
-    stroke-dasharray: 6 5;
-    stroke-dashoffset: 60;
-    animation: draw 1.4s ease-out 0.2s forwards;
-  }
-  @media (prefers-reduced-motion: reduce){
-    .trace{ animation: none; stroke-dashoffset: 0; }
-  }
-  @keyframes draw{ to{ stroke-dashoffset: 0; } }
 
   .bio p{
     margin: 0 0 12px;
@@ -172,8 +114,81 @@
   .bio p:last-child{ margin-bottom: 0; }
   .bio strong{ color: var(--accent); font-weight: 600; }
 
+  section{ margin-top: 34px; }
+
+  .projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+  }
+  .project{
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--panel);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .project h3{
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .project .stack{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .project p{
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .projects-more{
+    display: inline-block;
+    margin-top: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+  }
+  .projects-more:hover, .projects-more:focus-visible{ color: var(--accent); }
+
+  .resume-cta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    margin-top: 34px;
+    padding: 16px 18px;
+    border-radius: 3px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+    text-decoration: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15.5px;
+    transition: filter 0.15s ease;
+  }
+  .resume-cta:hover, .resume-cta:focus-visible{ filter: brightness(1.06); }
+  .resume-cta .arrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+  }
+
   .pinout{
-    margin-top: 30px;
+    margin-top: 10px;
     border: 1px solid var(--line);
     border-radius: 3px;
     overflow: hidden;
@@ -233,93 +248,73 @@
 <body>
 <div class="sheet">
 
-  <div class="titleblock">
-    <span class="field">DWG NO. <b>JR&#8209;001</b></span>
-    <span class="field">REV <b>A</b></span>
-    <span class="field">SHEET <b>1/1</b></span>
-    <span class="field">SCALE <b>1:1</b></span>
-    <span class="field">STATUS <b>ACTIVE</b></span>
-  </div>
-
-  <main>
+  <header>
     <h1 class="name">JAY&nbsp;RAO</h1>
     <p class="tagline">Electrical Engineering, ASU '29 — Co&#8209;Founder &amp; CTO, Tack&nbsp;Braille</p>
+  </header>
 
-    <hr class="rule" />
+  <hr class="rule" />
 
-    <div class="grid-2">
-      <figure class="component">
-        <svg viewBox="0 0 168 118" aria-hidden="true">
-          <!-- dimension line -->
-          <line class="dim-line" x1="4" y1="14" x2="164" y2="14" />
-          <line class="dim-line" x1="4" y1="10" x2="4" y2="18" />
-          <line class="dim-line" x1="164" y1="10" x2="164" y2="18" />
-          <text class="dim-label" x="84" y="10" text-anchor="middle">CELL PITCH — 6.2mm (STD)</text>
+  <div class="bio">
+    <p>Jay is a sophomore studying <strong>electrical engineering</strong> at Arizona State University and the co&#8209;founder and CTO of <strong>Tack Braille</strong>, an AI&#8209;powered braille display that grew out of an ASU EPICS Bridge2Africa project into an incorporated hardware startup in May 2026.</p>
+    <p>The current build pairs an nRF52840 BLE chip with phone&#8209;side AI inference, with PCB design support from Tetragon in Austria and a deployment partnership with Prinshef in South Africa.</p>
+  </div>
 
-          <!-- connecting trace from title block corner -->
-          <path class="trace" d="M4,28 L4,40 L20,40" />
-
-          <!-- cell 1: "E" = dots 1,5 -->
-          <g transform="translate(16,40)">
-            <circle class="dot-fill" cx="8" cy="8" r="7.5" />
-            <circle class="dot-empty" cx="8" cy="34" r="7.5" />
-            <circle class="dot-empty" cx="8" cy="60" r="7.5" />
-            <circle class="dot-empty" cx="34" cy="8" r="7.5" />
-            <circle class="dot-fill" cx="34" cy="34" r="7.5" />
-            <circle class="dot-empty" cx="34" cy="60" r="7.5" />
-          </g>
-
-          <!-- cell 2: "E" = dots 1,5 -->
-          <g transform="translate(92,40)">
-            <circle class="dot-fill" cx="8" cy="8" r="7.5" />
-            <circle class="dot-empty" cx="8" cy="34" r="7.5" />
-            <circle class="dot-empty" cx="8" cy="60" r="7.5" />
-            <circle class="dot-empty" cx="34" cy="8" r="7.5" />
-            <circle class="dot-fill" cx="34" cy="34" r="7.5" />
-            <circle class="dot-empty" cx="34" cy="60" r="7.5" />
-          </g>
-
-          <text class="dim-label" x="8" y="112" text-anchor="start">DOT &#216; 1.5mm</text>
-          <text class="dim-label" x="160" y="112" text-anchor="end">GRADE&#8209;1 BRAILLE</text>
-        </svg>
-        <figcaption><strong>Component:</strong> braille cell &times;2 &mdash; decodes to &ldquo;EE&rdquo</figcaption>
-      </figure>
-
-      <div class="bio">
-        <p>Jay is a sophomore studying <strong>electrical engineering</strong> at Arizona State University and the co&#8209;founder and CTO of <strong>Tack Braille</strong>, an AI&#8209;powered braille display that grew out of an ASU EPICS Bridge2Africa project into an incorporated hardware startup in May 2026.</p>
-        <p>The current build pairs an nRF52840 BLE chip with phone&#8209;side AI inference, with PCB design support from Tetragon in Austria and a deployment partnership with Prinshef in South Africa.</p>
+  <section>
+    <p class="section-label">Selected Projects</p>
+    <div class="projects">
+      <div class="project">
+        <h3>Tack &mdash; Web Assistant</h3>
+        <div class="stack">Next.js &middot; TypeScript &middot; WCAG AA</div>
+        <p>Own architecture and delivery for a screen&#8209;reader&#8209;first AI web assistant for blind and visually impaired users, with authentication, rate limiting, and SSRF/IDOR protections built in.</p>
+      </div>
+      <div class="project">
+        <h3>Autonomous RC Platform</h3>
+        <div class="stack">Raspberry Pi 4 &middot; RP2040 &middot; L298N</div>
+        <p>Wired the BLE sensor pipeline and brought up drive and steering motor control on a Raspberry Pi 4 / RP2040 stack &mdash; phases 1&ndash;2 of an 8&#8209;phase autonomy build.</p>
+      </div>
+      <div class="project">
+        <h3>SpaceHACK for Sustainability</h3>
+        <div class="stack">Google Earth Engine &middot; Sentinel&#8209;5P &middot; SRTM</div>
+        <p>1st place at ASU, 2nd internationally among 150+ teams &mdash; used satellite carbon&#8209;monoxide and elevation data with live vessel tracking to identify an overland shipping corridor.</p>
       </div>
     </div>
+    <a class="projects-more" href="https://github.com/jrao06" target="_blank" rel="noopener">More on GitHub &rarr;</a>
+  </section>
 
-    <div class="pinout">
-      <a class="pin-row" href="mailto:jayrao0107@gmail.com">
-        <span class="pin-dot"></span>
-        <span class="pin-label">Email</span>
-        <span class="pin-value">jayrao0107@gmail.com</span>
-        <span class="pin-arrow">&rarr;</span>
-      </a>
-      <a class="pin-row" href="tel:+15103989967">
-        <span class="pin-dot"></span>
-        <span class="pin-label">Phone</span>
-        <span class="pin-value">510&#8209;398&#8209;9967</span>
-        <span class="pin-arrow">&rarr;</span>
-      </a>
-      <a class="pin-row" href="https://www.linkedin.com/in/jayraor6" target="_blank" rel="noopener">
-        <span class="pin-dot"></span>
-        <span class="pin-label">LinkedIn</span>
-        <span class="pin-value">linkedin.com/in/jayraor6</span>
-        <span class="pin-arrow">&rarr;</span>
-      </a>
-      <a class="pin-row" href="https://github.com/jrao06" target="_blank" rel="noopener">
-        <span class="pin-dot"></span>
-        <span class="pin-label">GitHub</span>
-        <span class="pin-value">github.com/jrao06</span>
-        <span class="pin-arrow">&rarr;</span>
-      </a>
-    </div>
+  <a class="resume-cta" href="/resume.pdf" target="_blank" rel="noopener">
+    <span>Download R&eacute;sum&eacute;</span>
+    <span class="arrow">&darr;</span>
+  </a>
 
-    <footer>B.S.E. Electrical Engineering &mdash; Arizona State University &mdash; Expected 2029</footer>
-  </main>
+  <div class="pinout">
+    <a class="pin-row" href="mailto:jayrao0107@gmail.com">
+      <span class="pin-dot"></span>
+      <span class="pin-label">Email</span>
+      <span class="pin-value">jayrao0107@gmail.com</span>
+      <span class="pin-arrow">&rarr;</span>
+    </a>
+    <a class="pin-row" href="tel:+15103989967">
+      <span class="pin-dot"></span>
+      <span class="pin-label">Phone</span>
+      <span class="pin-value">510&#8209;398&#8209;9967</span>
+      <span class="pin-arrow">&rarr;</span>
+    </a>
+    <a class="pin-row" href="https://www.linkedin.com/in/jayraor6" target="_blank" rel="noopener">
+      <span class="pin-dot"></span>
+      <span class="pin-label">LinkedIn</span>
+      <span class="pin-value">linkedin.com/in/jayraor6</span>
+      <span class="pin-arrow">&rarr;</span>
+    </a>
+    <a class="pin-row" href="https://github.com/jrao06" target="_blank" rel="noopener">
+      <span class="pin-dot"></span>
+      <span class="pin-label">GitHub</span>
+      <span class="pin-value">github.com/jrao06</span>
+      <span class="pin-arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <footer>B.S.E. Electrical Engineering &mdash; Arizona State University &mdash; Expected 2029</footer>
 </div>
 </body>
 </html>
