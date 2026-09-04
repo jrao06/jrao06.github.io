@@ -163,13 +163,14 @@
   }
   .projects-more:hover, .projects-more:focus-visible{ color: var(--accent); }
 
+  .resume-row{ margin-top: 34px; }
+
   .resume-cta{
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
     width: 100%;
-    margin-top: 34px;
     padding: 16px 18px;
     border-radius: 3px;
     border: 1px solid var(--accent);
@@ -186,6 +187,19 @@
     font-family: 'IBM Plex Mono', monospace;
     font-size: 16px;
   }
+
+  .resume-download{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .resume-download:hover, .resume-download:focus-visible{ color: var(--accent); }
+  .resume-download .arrow{ margin-left: 5px; }
 
   .pinout{
     margin-top: 10px;
@@ -282,10 +296,16 @@
     <a class="projects-more" href="https://github.com/jrao06" target="_blank" rel="noopener">More on GitHub &rarr;</a>
   </section>
 
-  <a class="resume-cta" href="/resume.pdf" target="_blank" rel="noopener">
-    <span>Download R&eacute;sum&eacute;</span>
-    <span class="arrow">&darr;</span>
-  </a>
+  <div class="resume-row">
+    <a class="resume-cta" href="/resume.pdf" target="_blank" rel="noopener">
+      <span>View R&eacute;sum&eacute;</span>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a class="resume-download" href="/resume.pdf" download="Jay_Rao_Resume.pdf">
+      <span>Download PDF instead</span>
+      <span class="arrow">&darr;</span>
+    </a>
+  </div>
 
   <div class="pinout">
     <a class="pin-row" href="mailto:jayrao0107@gmail.com">
